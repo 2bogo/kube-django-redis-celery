@@ -9,15 +9,15 @@
 > Deploy web application using Django, Celery, Redis, Nginx, and Kubernetes.
 
 ## Getting Started
-- docker image build
+- docker-compose
 ```
 docker-compose build --no-cache
 ```
 
-- Push image to Docker Hub (app, celery)
+- build image & deploy kubernetes
 ```
-docker tag local-image:tagname {username/reponame}:tagname
-docker push {username/reponame}:tagname
+docker built -t django-celery .
+
 ```
 
 ## Author
