@@ -14,8 +14,21 @@ spec:
     spec:
       containers:
       - name: django-celery
-        image: django-celery:latest
+        image: justezy0210/django-celery:1.0.1
         imagePullPolicy: Always
         command: ["celery", "-A", "proj", "worker", "-l", "info"]
+
+        env:
+          - name: REDIS_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: app-variables
+                key: REDIS_HOST
+
+          - name: REDIS_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: app-variables
+                key: REDIS_PORT
         
       restartPolicy: Always
