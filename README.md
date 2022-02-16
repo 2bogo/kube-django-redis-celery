@@ -19,10 +19,3 @@ docker-compose build --no-cache
 docker built -t django-celery .
 
 ```
-
-## Author
-
-**yeah-zin**
-
-* Email: justezy0210@gmail.com
-* Github: [yeah-zin](https://github.com/yeah-zin)
