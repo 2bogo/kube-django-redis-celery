@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: django-app
-        image: justezy0210/django-celery:1.0.0
+        image: django-celery:latest
         imagePullPolicy: Always
         command: ["gunicorn", "--bind", "0:8000", "--workers", "5", "proj.wsgi"]
 

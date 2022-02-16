@@ -3,12 +3,17 @@ version: "3"
 services:
   app:
     build: .
+    image: django-celery
     ports:
       - "8000:8000"
 
     command: >
       sh -c "python manage.py migrate &&
         gunicorn --bind 0:8000 --workers 5 --log-level debug proj.wsgi"
+
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
 
     depends_on:
       - redis
@@ -20,6 +25,10 @@ services:
     build: .
 
     command: celery -A proj worker -l info
+
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
 
     depends_on:
       - app
