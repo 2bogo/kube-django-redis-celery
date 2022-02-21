@@ -44,6 +44,7 @@ metadata:
   name: django-service
 spec:
   type: NodePort
+  # type: ClusterIP
   selector:
     app: django-app
   ports:
